@@ -44,3 +44,14 @@ SELECT id, name, createdtimestamp, updatedtimestamp FROM Table2;
 --Run a query on all tables in the database
 sp_MSforeachtable 'alter table ? check constraint all'
 
+--Check if table exists SQL 2000
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Employees')
+BEGIN
+    --DO THINGS
+END
+
+--Check if column exists SQL 2000
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'Employees' AND COLUMN_NAME = 'JobName')
+BEGIN
+    --DO THINGS
+END
